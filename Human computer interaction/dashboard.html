@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <aside id="sidebar" class="sidebar">
+
+            <!-- Store / Application Name -->
+            <div class="brand">
+                <h2>Shop Leblanc</h2>
+            </div>
+
+            <button class="menu-toggle" onclick="toggleMenu()">
+                ☰ <span>Menu</span>
+            </button>
+
+            <!-- Main Navigation Group -->
+            <div class="menu-group">
+                <p class="menu-title">Main Navigation</p>
+                <button class="menu-btn active" onclick="setActive(this); showPage('home')">
+                    🏠 <span>Home</span>
+                </button>
+                <button class="menu-btn" onclick="setActive(this); showPage('products')">
+                    📦 <span>Products</span>
+                </button>
+                <button class="menu-btn" onclick="setActive(this); showPage('categories')">
+                    🏷️ <span>Categories</span>
+                </button>
+            </div>
+
+            <!-- Shopping Group -->
+            <div class="menu-group">
+                <p class="menu-title">Shopping</p>
+                <button class="menu-btn" onclick="setActive(this); showPage('cart')">
+                    🛒 <span>Cart (<span id="cart-count">0</span>)</span>
+                </button>
+                <button class="menu-btn" onclick="setActive(this); showPage('orders')">
+                    📜 <span>My Orders</span>
+                </button>
+                <button class="menu-btn" onclick="setActive(this); showPage('wishlist')">
+                    ❤️ <span>Wishlist (<span id="wishlist-count">0</span>)</span>
+                </button>
+            </div>
+
+            <!-- Account Group -->
+            <div class="menu-group">
+                <p class="menu-title">Account</p>
+                <button class="menu-btn" onclick="setActive(this); showPage('profile')">
+                    👤 <span>Profile</span>
+                </button>
+                <button class="menu-btn" onclick="setActive(this); showPage('settings')">
+                    ⚙ <span>Settings</span>
+                </button>
+            </div>
+
+            <!-- System Group -->
+            <div class="menu-group">
+                <p class="menu-title">System</p>
+                <button class="menu-btn" onclick="logout()">
+                    🚪 <span>Logout</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <main class="content">
+
+            <!-- HOME PAGE -->
+            <section id="home" class="page active">
+                <h1>Home</h1>
+                <div id="home-content">
+                    <div class="card">
+                        Welcome to Dashboard!
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRODUCTS PAGE -->
+            <section id="products" class="page">
+                <h1>Products</h1>
+                <div id="shop-grid" class="shop-grid">
+                    <!-- Dynamic Product Cards -->
+                </div>
+            </section>
+
+            <!-- CATEGORIES PAGE -->
+            <section id="categories" class="page">
+                <h1>Categories</h1>
+                <ul class="category-list">
+                    <li>Electronics</li>
+                    <li>Apparel</li>
+                    <li>Accessories</li>
+                </ul>
+            </section>
+
+            <!-- CART PAGE -->
+            <section id="cart" class="page">
+                <h1>Cart</h1>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-list">
+                            <!-- Dynamic Cart Items -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- MY ORDERS PAGE -->
+            <section id="orders" class="page">
+                <h1>My Orders</h1>
+                <div id="orders-list">
+                    <!-- Dynamic Orders -->
+                </div>
+            </section>
+
+            <!-- WISHLIST PAGE -->
+            <section id="wishlist" class="page">
+                <h1>Wishlist</h1>
+                <div id="wishlist-grid" class="shop-grid">
+                    <!-- Dynamic Wishlist Cards -->
+                </div>
+            </section>
+
+            <!-- PROFILE PAGE -->
+            <section id="profile" class="page">
+                <h1>Profile</h1>
+                <div id="profile-content">
+                    <div class="card">
+                        User Profile Information
+                    </div>
+                </div>
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section id="settings" class="page">
+                <h1>Settings</h1>
+                <div id="settings-content">
+                    <div class="card">
+                        Account Settings & Preferences
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
