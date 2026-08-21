@@ -14,42 +14,74 @@ body {
     height: 100vh;
 }
 
+/* Top Header Bar (YouTube Style) */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+    z-index: 20;
+    border-bottom: 2px solid #222;
+}
 
+.menu-toggle {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: 0.2s;
+}
+
+.menu-toggle:hover {
+    color: #e60012;
+}
+
+.brand {
+    background: black;
+    color: white;
+    padding: 6px 14px;
+    font-weight: bold;
+    transform: skew(-5deg);
+    border: 2px solid #e60012;
+}
+
+.brand h2 {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* Sidebar Positioning & Skew */
 .sidebar {
     position: fixed;
     left: 0;
-    top: 0;
-    height: 100vh;
-    width: 250px;
+    top: 60px;
+    height: calc(100vh - 60px);
+    width: 240px;
     background: #e60012;
     padding: 20px 15px;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    transform: skew(-5deg);
-    box-shadow: 8px 0 black;
-    transition: 0.3s ease;
+    transform: skew(-3deg);
+    box-shadow: 6px 0 black;
+    transition: width 0.3s ease;
     z-index: 10;
     overflow-y: auto;
 }
 
+/* Collapsed Sidebar State (YouTube Style) */
 .sidebar.collapsed {
-    width: 80px;
-    padding: 20px 10px;
+    width: 85px;
+    padding: 15px 5px;
 }
-
-
-.brand {
-    background: black;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    transform: skew(5deg);
-    border: 2px solid white;
-    margin-bottom: 5px;
-}
-
 
 .menu-group {
     display: flex;
@@ -65,22 +97,26 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding-left: 5px;
-    transform: skew(5deg);
+    transform: skew(3deg);
 }
 
+.sidebar.collapsed .menu-title {
+    display: none;
+}
 
+/* Expanded Navigation Buttons */
 .sidebar button {
     background: black;
     color: white;
     border: none;
     padding: 12px 15px;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
-    transform: skew(5deg);
-    transition: 0.3s;
+    gap: 12px;
+    transform: skew(3deg);
+    transition: 0.2s;
     white-space: nowrap;
     width: 100%;
 }
@@ -90,7 +126,6 @@ body {
     color: #e60012;
 }
 
-
 .sidebar button.active {
     background: white;
     color: #e60012;
@@ -98,29 +133,37 @@ body {
     border-left: 6px solid black;
 }
 
-
-.menu-toggle {
-    justify-content: flex-start;
-}
-
-
-.sidebar.collapsed span,
-.sidebar.collapsed .menu-title,
-.sidebar.collapsed .brand h2 {
-    display: none;
-}
-
+/* Collapsed Navigation Button Adjustments (YouTube Compact Style) */
 .sidebar.collapsed button {
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 4px;
     justify-content: center;
+    text-align: center;
 }
 
+.sidebar.collapsed button .icon {
+    font-size: 18px;
+}
 
+.sidebar.collapsed button .label {
+    font-size: 10px;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.1;
+}
+
+/* Content Area Adjustment */
 .content {
-    margin-left: 280px;
+    margin-left: 260px;
     padding: 40px;
-    transition: 0.3s ease;
+    padding-top: 80px;
+    transition: margin-left 0.3s ease;
 }
 
+.content.collapsed {
+    margin-left: 105px;
+}
 
 .page {
     display: none;
@@ -131,7 +174,7 @@ body {
 }
 
 .content h1 {
-    font-size: 50px;
+    font-size: 45px;
     color: #e60012;
     margin-bottom: 20px;
 }
@@ -157,6 +200,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    color: black;
 }
 
 .card-form input,
@@ -165,6 +209,19 @@ body {
     border: 3px solid black;
     font-size: 16px;
     outline: none;
+}
+
+.card-form label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.card-form label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    padding: 0;
 }
 
 .card-form button {
@@ -181,7 +238,6 @@ body {
 .card-form button:hover {
     background: black;
 }
-
 
 .table-container {
     overflow-x: auto;
@@ -222,7 +278,6 @@ th {
     background: #e60012;
 }
 
-
 .category-list {
     list-style: none;
     max-width: 500px;
@@ -240,7 +295,6 @@ th {
     align-items: center;
     font-weight: bold;
 }
-
 
 .shop-grid {
     display: grid;
@@ -314,7 +368,6 @@ th {
     background: #e60012;
 }
 
-
 .checkout-box {
     background: white;
     color: black;
@@ -326,7 +379,6 @@ th {
     justify-content: space-between;
     align-items: center;
 }
-
 
 .order-card {
     background: white;
